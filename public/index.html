@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MegamassfitnessUSA — Commercial Grade Fitness Equipment</title>
+  <meta name="description" content="MegamassfitnessUSA — Heavy-duty fitness equipment built for serious athletes, commercial gyms, and home gym warriors. Based in Katy, Texas.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black: #0a0a0a;
+      --red: #cc1f1f;
+      --red-dark: #a01515;
+      --gray: #1a1a1a;
+      --gray-mid: #2e2e2e;
+      --gray-light: #888;
+      --white: #ffffff;
+      --off-white: #f5f5f5;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--black);
+      color: var(--white);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(10,10,10,0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      padding: 0 5%;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 68px;
+    }
+    .nav-logo {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900; font-size: 22px; letter-spacing: 1px;
+      color: var(--white); text-decoration: none;
+    }
+    .nav-logo span { color: var(--red); }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a { color: #aaa; font-size: 14px; font-weight: 500; text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--white); }
+    .nav-cta {
+      background: var(--red); color: var(--white);
+      padding: 10px 22px; border-radius: 4px;
+      font-size: 14px; font-weight: 600; text-decoration: none;
+      transition: background 0.2s;
+    }
+    .nav-cta:hover { background: var(--red-dark); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #0a0a0a 0%, #1a0a0a 50%, #0a0a0a 100%);
+      display: flex; align-items: center;
+      padding: 100px 5% 60px;
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.015'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      opacity: 0.5;
+    }
+    .hero-content { position: relative; max-width: 700px; }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(204,31,31,0.15); border: 1px solid rgba(204,31,31,0.4);
+      color: #ff6b6b; font-size: 12px; font-weight: 600; letter-spacing: 2px;
+      text-transform: uppercase; padding: 6px 14px; border-radius: 2px;
+      margin-bottom: 24px;
+    }
+    .hero h1 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900; font-size: clamp(52px, 8vw, 88px);
+      line-height: 0.95; letter-spacing: -1px;
+      text-transform: uppercase; margin-bottom: 24px;
+    }
+    .hero h1 em { font-style: normal; color: var(--red); }
+    .hero p {
+      font-size: 18px; color: #aaa; line-height: 1.7;
+      max-width: 540px; margin-bottom: 40px;
+    }
+    .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--red); color: var(--white);
+      padding: 16px 36px; border-radius: 4px;
+      font-size: 16px; font-weight: 700; text-decoration: none;
+      text-transform: uppercase; letter-spacing: 1px;
+      transition: background 0.2s, transform 0.1s;
+      display: inline-block;
+    }
+    .btn-primary:hover { background: var(--red-dark); transform: translateY(-1px); }
+    .btn-secondary {
+      background: transparent; color: var(--white);
+      border: 2px solid rgba(255,255,255,0.2);
+      padding: 14px 32px; border-radius: 4px;
+      font-size: 16px; font-weight: 600; text-decoration: none;
+      text-transform: uppercase; letter-spacing: 1px;
+      transition: border-color 0.2s, transform 0.1s;
+      display: inline-block;
+    }
+    .btn-secondary:hover { border-color: rgba(255,255,255,0.5); transform: translateY(-1px); }
+
+    /* ── STATS BAR ── */
+    .stats-bar {
+      background: var(--gray);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      padding: 28px 5%;
+      display: flex; justify-content: center; gap: 60px; flex-wrap: wrap;
+    }
+    .stat { text-align: center; }
+    .stat-num {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 36px; font-weight: 900; color: var(--red);
+    }
+    .stat-label { font-size: 12px; color: #666; text-transform: uppercase; letter-spacing: 1px; margin-top: 2px; }
+
+    /* ── SECTION ── */
+    section { padding: 80px 5%; }
+    .section-label {
+      font-size: 12px; font-weight: 600; color: var(--red);
+      text-transform: uppercase; letter-spacing: 3px; margin-bottom: 12px;
+    }
+    .section-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900; font-size: clamp(36px, 5vw, 56px);
+      text-transform: uppercase; line-height: 1.05; margin-bottom: 16px;
+    }
+    .section-sub { font-size: 16px; color: #888; line-height: 1.7; max-width: 560px; }
+
+    /* ── PRODUCTS ── */
+    #products { background: var(--gray); }
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px; margin-top: 48px;
+    }
+    .product-card {
+      background: var(--gray-mid);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 6px; overflow: hidden;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+    .product-card:hover { transform: translateY(-4px); border-color: rgba(204,31,31,0.4); }
+    .product-img {
+      height: 200px; background: #222;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .product-img svg { opacity: 0.15; }
+    .product-info { padding: 20px; }
+    .product-name {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 22px; font-weight: 700; text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .product-desc { font-size: 13px; color: #777; line-height: 1.6; margin-bottom: 16px; }
+    .product-tag {
+      display: inline-block;
+      background: rgba(204,31,31,0.12); color: #ff8080;
+      font-size: 11px; font-weight: 600; letter-spacing: 1px;
+      text-transform: uppercase; padding: 4px 10px; border-radius: 2px;
+    }
+
+    /* ── WHY US ── */
+    #why { background: var(--black); }
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 32px; margin-top: 48px;
+    }
+    .why-card {
+      padding: 32px 28px;
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 6px;
+      background: rgba(255,255,255,0.02);
+    }
+    .why-icon {
+      width: 48px; height: 48px;
+      background: rgba(204,31,31,0.12);
+      border-radius: 6px; display: flex; align-items: center; justify-content: center;
+      margin-bottom: 20px; font-size: 22px;
+    }
+    .why-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 20px; font-weight: 700; text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .why-desc { font-size: 14px; color: #777; line-height: 1.7; }
+
+    /* ── ABOUT ── */
+    #about {
+      background: var(--gray);
+      display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+    }
+    @media (max-width: 768px) { #about { grid-template-columns: 1fr; } }
+    .about-img-placeholder {
+      background: var(--gray-mid);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 8px; height: 400px;
+      display: flex; align-items: center; justify-content: center;
+      color: #444; font-size: 14px;
+    }
+    .about-text .section-sub { max-width: 100%; }
+    .about-text blockquote {
+      border-left: 3px solid var(--red);
+      padding-left: 20px; margin: 28px 0;
+      font-size: 18px; color: #ccc; font-style: italic; line-height: 1.6;
+    }
+
+    /* ── CONTACT ── */
+    #contact { background: var(--black); }
+    .contact-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 60px;
+      margin-top: 48px;
+    }
+    @media (max-width: 768px) { .contact-grid { grid-template-columns: 1fr; } }
+    .contact-form input,
+    .contact-form textarea,
+    .contact-form select {
+      width: 100%; background: var(--gray);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: var(--white); padding: 14px 16px;
+      border-radius: 4px; font-size: 15px; font-family: 'Inter', sans-serif;
+      margin-bottom: 16px; outline: none;
+      transition: border-color 0.2s;
+    }
+    .contact-form input:focus,
+    .contact-form textarea:focus { border-color: var(--red); }
+    .contact-form textarea { height: 120px; resize: vertical; }
+    .contact-form button {
+      width: 100%; background: var(--red); color: var(--white);
+      border: none; padding: 16px; border-radius: 4px;
+      font-size: 16px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 1px; cursor: pointer; transition: background 0.2s;
+    }
+    .contact-form button:hover { background: var(--red-dark); }
+    .contact-info h3 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 28px; font-weight: 800; text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .contact-info p { font-size: 15px; color: #888; line-height: 1.8; margin-bottom: 28px; }
+    .contact-detail { display: flex; gap: 14px; align-items: flex-start; margin-bottom: 20px; }
+    .contact-detail-icon { font-size: 20px; margin-top: 2px; }
+    .contact-detail-text strong { display: block; font-size: 13px; color: #aaa; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 2px; }
+    .contact-detail-text span { font-size: 15px; color: var(--white); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #050505;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 32px 5%;
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 16px;
+    }
+    .footer-logo {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 18px; font-weight: 900; color: var(--white);
+    }
+    .footer-logo span { color: var(--red); }
+    footer p { font-size: 13px; color: #555; }
+
+    /* ── MOBILE NAV ── */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hero h1 { font-size: 52px; }
+    }
+
+    /* ── RIBBON ── */
+    .mockup-ribbon {
+      background: var(--red);
+      text-align: center; padding: 10px;
+      font-size: 13px; font-weight: 600; letter-spacing: 1px;
+      position: sticky; top: 68px; z-index: 99;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav>
+    <a href="#" class="nav-logo">MEGAMASS<span>FITNESS</span>USA</a>
+    <ul class="nav-links">
+      <li><a href="#products">Equipment</a></li>
+      <li><a href="#why">Why Us</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta">Get a Quote</a>
+  </nav>
+
+  <!-- Mock-up notice -->
+  <div class="mockup-ribbon">
+    ⚡ MOCK-UP PREVIEW — Final design customized with your branding &amp; content
+  </div>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-badge">Built for Champions &bull; Katy, Texas</div>
+      <h1>Commercial Grade.<br><em>Iron Built.</em><br>USA Tough.</h1>
+      <p>
+        MegamassfitnessUSA delivers heavy-duty fitness equipment engineered for serious athletes,
+        competitive gyms, and home gym warriors who refuse to settle.
+      </p>
+      <div class="hero-btns">
+        <a href="#products" class="btn-primary">View Equipment</a>
+        <a href="#contact" class="btn-secondary">Request a Quote</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Bar -->
+  <div class="stats-bar">
+    <div class="stat">
+      <div class="stat-num">100%</div>
+      <div class="stat-label">Commercial Grade</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">USA</div>
+      <div class="stat-label">Based &amp; Operated</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">★★★★★</div>
+      <div class="stat-label">Athlete Trusted</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">Katy, TX</div>
+      <div class="stat-label">Home Base</div>
+    </div>
+  </div>
+
+  <!-- Products -->
+  <section id="products">
+    <div class="section-label">Equipment Lineup</div>
+    <h2 class="section-title">Built to <em style="font-style:normal;color:var(--red);">Handle</em> Everything</h2>
+    <p class="section-sub">Heavy-duty equipment for every lift, every athlete, every goal. Commercial specs. Real iron.</p>
+
+    <div class="products-grid">
+      <!-- Cards filled in once Kyle sends product info -->
+      <div class="product-card">
+        <div class="product-img">
+          <svg width="80" height="80" viewBox="0 0 24 24" fill="white"><path d="M20.57 14.86L22 13.43 20.57 12 17 15.57 8.43 7 12 3.43 10.57 2 9.14 3.43 7.71 2 5.57 4.14 4.14 2.71 2.71 4.14l1.43 1.43L2 7.71l1.43 1.43L2 10.57 3.43 12 7 8.43 15.57 17 12 20.57 13.43 22l1.43-1.43L16.29 22l2.14-2.14 1.43 1.43 1.43-1.43-1.43-1.43L22 16.29l-1.43-1.43z"/></svg>
+        </div>
+        <div class="product-info">
+          <div class="product-name">Power Racks</div>
+          <div class="product-desc">Heavy-gauge steel construction. Rated for elite loads. Designed for squat, bench, and overhead work.</div>
+          <span class="product-tag">Commercial Grade</span>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img">
+          <svg width="80" height="80" viewBox="0 0 24 24" fill="white"><path d="M20.57 14.86L22 13.43 20.57 12 17 15.57 8.43 7 12 3.43 10.57 2 9.14 3.43 7.71 2 5.57 4.14 4.14 2.71 2.71 4.14l1.43 1.43L2 7.71l1.43 1.43L2 10.57 3.43 12 7 8.43 15.57 17 12 20.57 13.43 22l1.43-1.43L16.29 22l2.14-2.14 1.43 1.43 1.43-1.43-1.43-1.43L22 16.29l-1.43-1.43z"/></svg>
+        </div>
+        <div class="product-info">
+          <div class="product-name">Benches</div>
+          <div class="product-desc">Flat, incline, decline, and specialty pressing benches. Built for maximum stability under maximum weight.</div>
+          <span class="product-tag">Bench Specialist</span>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img">
+          <svg width="80" height="80" viewBox="0 0 24 24" fill="white"><path d="M20.57 14.86L22 13.43 20.57 12 17 15.57 8.43 7 12 3.43 10.57 2 9.14 3.43 7.71 2 5.57 4.14 4.14 2.71 2.71 4.14l1.43 1.43L2 7.71l1.43 1.43L2 10.57 3.43 12 7 8.43 15.57 17 12 20.57 13.43 22l1.43-1.43L16.29 22l2.14-2.14 1.43 1.43 1.43-1.43-1.43-1.43L22 16.29l-1.43-1.43z"/></svg>
+        </div>
+        <div class="product-info">
+          <div class="product-name">Cable Systems</div>
+          <div class="product-desc">Functional cable machines for full-body training. Smooth, durable, gym-grade.</div>
+          <span class="product-tag">Functional Training</span>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img">
+          <svg width="80" height="80" viewBox="0 0 24 24" fill="white"><path d="M20.57 14.86L22 13.43 20.57 12 17 15.57 8.43 7 12 3.43 10.57 2 9.14 3.43 7.71 2 5.57 4.14 4.14 2.71 2.71 4.14l1.43 1.43L2 7.71l1.43 1.43L2 10.57 3.43 12 7 8.43 15.57 17 12 20.57 13.43 22l1.43-1.43L16.29 22l2.14-2.14 1.43 1.43 1.43-1.43-1.43-1.43L22 16.29l-1.43-1.43z"/></svg>
+        </div>
+        <div class="product-info">
+          <div class="product-name">Free Weights</div>
+          <div class="product-desc">Barbells, dumbbells, plates, and kettlebells. Precision-machined. Built to outlast your PRs.</div>
+          <span class="product-tag">Iron Everything</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Us -->
+  <section id="why">
+    <div class="section-label">Why MegamassfitnessUSA</div>
+    <h2 class="section-title">The Equipment Your Gym <em style="font-style:normal;color:var(--red);">Deserves</em></h2>
+    <p class="section-sub">We're not selling consumer-grade gear wrapped in a nice box. This is real iron for real lifters.</p>
+
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon">🏗️</div>
+        <div class="why-title">Commercial Construction</div>
+        <div class="why-desc">Every piece is built to take abuse — daily use, heavy loads, serious athletes. No shortcuts.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🇺🇸</div>
+        <div class="why-title">USA Based</div>
+        <div class="why-desc">Local support, real people, no runaround. Based in Katy, Texas — we stand behind our products.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">💰</div>
+        <div class="why-title">Competitive Pricing</div>
+        <div class="why-desc">Commercial-grade quality doesn't have to mean commercial-grade markups. We keep it honest.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">⚡</div>
+        <div class="why-title">Fast Fulfillment</div>
+        <div class="why-desc">We know downtime kills momentum. We move fast so you can get back to lifting.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <div class="about-img-placeholder">
+      📸 Your equipment photo here
+    </div>
+    <div class="about-text">
+      <div class="section-label">Our Story</div>
+      <h2 class="section-title">Built by<br><em style="font-style:normal;color:var(--red);">Lifters,</em><br>For Lifters</h2>
+      <p class="section-sub" style="margin-bottom:20px;">
+        MegamassfitnessUSA was born out of a simple frustration: serious athletes couldn't find serious equipment at a fair price.
+        So we fixed it.
+      </p>
+      <blockquote>
+        "We built the kind of gym we always wanted — and now we're helping everyone else do the same."
+      </blockquote>
+      <p class="section-sub">
+        Based in Katy, Texas, we supply home gym builders, commercial facilities, and competitive athletes
+        with equipment that trains as hard as they do.
+      </p>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="section-label">Get in Touch</div>
+    <h2 class="section-title">Ready to <em style="font-style:normal;color:var(--red);">Build</em> Your Gym?</h2>
+
+    <div class="contact-grid">
+      <form class="contact-form" onsubmit="handleSubmit(event)">
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Email Address" required>
+        <input type="tel" placeholder="Phone Number">
+        <select>
+          <option value="" disabled selected>I'm interested in...</option>
+          <option>Power Racks</option>
+          <option>Benches</option>
+          <option>Cable Systems</option>
+          <option>Free Weights</option>
+          <option>Full Gym Package</option>
+          <option>Other</option>
+        </select>
+        <textarea placeholder="Tell us about your project — home gym, commercial facility, budget, timeline..."></textarea>
+        <button type="submit">Send My Inquiry →</button>
+        <div id="form-msg" style="margin-top:12px;font-size:14px;text-align:center;display:none;"></div>
+      </form>
+
+      <div class="contact-info">
+        <h3>Let's Talk Iron</h3>
+        <p>Whether you're outfitting a home garage gym or a full commercial facility, we'll get you set up right. Reach out and we'll respond fast.</p>
+
+        <div class="contact-detail">
+          <div class="contact-detail-icon">📍</div>
+          <div class="contact-detail-text">
+            <strong>Location</strong>
+            <span>Katy, Texas</span>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">✉️</div>
+          <div class="contact-detail-text">
+            <strong>Email</strong>
+            <span>MegamassfitnessUSA@outlook.com</span>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">🕐</div>
+          <div class="contact-detail-text">
+            <strong>Response Time</strong>
+            <span>Within 24 hours</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-logo">MEGAMASS<span>FITNESS</span>USA</div>
+    <p>&copy; 2026 MegamassfitnessUSA &bull; Katy, Texas &bull; All Rights Reserved</p>
+    <p style="font-size:12px;color:#333;">Site by Strickland Technology</p>
+  </footer>
+
+  <script>
+    function handleSubmit(e) {
+      e.preventDefault();
+      var msg = document.getElementById('form-msg');
+      msg.style.display = 'block';
+      msg.style.color = '#4ade80';
+      msg.textContent = '✓ Message sent! We\'ll be in touch within 24 hours.';
+      e.target.reset();
+    }
+  </script>
+
+</body>
+</html>
